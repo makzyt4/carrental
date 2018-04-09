@@ -58,6 +58,18 @@ dependencies {
             name: 'spring-boot-starter-thymeleaf',
             version: '2.0.0.RELEASE'
 
+    compile group: 'org.springframework.security',
+            name: 'spring-security-core',
+            version: '5.0.4.RELEASE'
+
+    compile group: 'org.springframework.security',
+            name: 'spring-security-config',
+            version: '5.0.4.RELEASE'
+
+    compile group: 'org.springframework.security',
+            name: 'spring-security-web',
+            version: '5.0.4.RELEASE'
+
     compile group: 'nz.net.ultraq.thymeleaf',
             name: 'thymeleaf-layout-dialect',
             version: '2.3.0'
