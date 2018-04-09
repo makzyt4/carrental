@@ -70,6 +70,10 @@ dependencies {
             name: 'spring-security-web',
             version: '5.0.4.RELEASE'
 
+    compile group: 'org.thymeleaf.extras',
+            name: 'thymeleaf-extras-springsecurity4',
+            version: '3.0.2.RELEASE'
+
     compile group: 'nz.net.ultraq.thymeleaf',
             name: 'thymeleaf-layout-dialect',
             version: '2.3.0'
