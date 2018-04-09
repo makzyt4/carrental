@@ -7,7 +7,6 @@
         <p class="lead">Wypożycz sobie samochód już dziś!</p>
     </div>
 
-
     <div class="bs-component">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Carrental</a>
@@ -19,10 +18,13 @@
             <div class="navbar-collapse collapse" id="navbar" role="navigation">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Strona główna<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" th:href="@{~/}">Strona główna</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Wypożyczalnia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{~/map}">Lokalizacje</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kontakt</a>
@@ -56,7 +58,7 @@
                     <ul class="undecorated text-left">
                         <li><a href="">Najczęściej wyszukiwane kraje</a></li>
                         <li><a href="">Najczęściej wyszukiwane miasta</a></li>
-                        <li><a href="">Wszystkie kraje</a></li>
+                        <li><a th:href="@{~/map}">Wszystkie kraje</a></li>
                         <li><a href="">Preferencje dotyczące e-maili</a></li>
                     </ul>
                 </div>
