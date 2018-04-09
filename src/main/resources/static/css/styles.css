@@ -17,5 +17,20 @@ html, body {
   height: 150px;
   clear:both;
   padding-top:20px;
-  background: #cccccc;
+}
+
+.page-footer {
+  background: #4a5254;
+  padding: 20px;
+}
+
+.undecorated {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jumbotron {
+    background-image: url("../images/header.jpg");
+    background-size: cover;
 }
