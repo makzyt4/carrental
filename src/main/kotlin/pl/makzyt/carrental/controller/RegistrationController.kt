@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
 import pl.makzyt.carrental.model.LoginForm
+import pl.makzyt.carrental.model.User
 import javax.validation.Valid
 
 @Controller
@@ -23,6 +24,12 @@ class RegistrationController {
             return "register"
         }
 
+        var form = LoginForm()
+
         return "index"
+    }
+
+    fun createUserAccount() {
+
     }
 }
