@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping
 class IndexController {
     @GetMapping("/")
     @PostMapping("/")
-    fun form(): String {
+    fun index(): String {
         return "index"
     }
 }

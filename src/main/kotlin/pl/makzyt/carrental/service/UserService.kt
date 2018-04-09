@@ -1,6 +1,7 @@
 package pl.makzyt.carrental.service
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import pl.makzyt.carrental.model.RegisterForm
 import pl.makzyt.carrental.model.AppUser
@@ -19,7 +20,7 @@ class UserService {
         user.firstName = form.firstName
         user.lastName = form.lastName
         user.email = form.email
-        user.passwordHash = form.password // TODO Change this!
+        user.password = BCryptPasswordEncoder().encode(form.password)
         repository.save(user)
         return user
     }
