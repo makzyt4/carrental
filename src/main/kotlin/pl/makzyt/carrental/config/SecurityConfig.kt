@@ -31,8 +31,8 @@ open class SecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
                 .authorizeRequests()
-                .anyRequest().permitAll()
                 .antMatchers("/map").authenticated()
+                .antMatchers("/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -40,5 +40,9 @@ open class SecurityConfig : WebSecurityConfigurerAdapter() {
                 .passwordParameter("password")
                 .successForwardUrl("/")
                 .failureForwardUrl("/login")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
     }
 }

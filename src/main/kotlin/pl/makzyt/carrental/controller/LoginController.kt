@@ -20,4 +20,9 @@ class LoginController {
         model.addAttribute("loginError", true)
         return "login"
     }
+
+    @PostMapping("/logout")
+    fun logout(): String {
+        return "logout"
+    }
 }
