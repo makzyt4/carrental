@@ -1,15 +1,15 @@
 package pl.makzyt.carrental.validator
 
 import org.springframework.beans.factory.annotation.Autowired
-import pl.makzyt.carrental.service.UserService
+import pl.makzyt.carrental.service.AppUserService
 import javax.validation.ConstraintValidator
 import javax.validation.ConstraintValidatorContext
 
 class UniqueEmailValidator : ConstraintValidator<ValidEmail, String> {
     @Autowired
-    lateinit var userService: UserService
+    lateinit var appUserService: AppUserService
 
     override fun isValid(value: String, context: ConstraintValidatorContext?): Boolean {
-        return !userService.emailExists(value)
+        return !appUserService.emailExists(value)
     }
 }

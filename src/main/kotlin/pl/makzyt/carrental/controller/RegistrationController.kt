@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
 import pl.makzyt.carrental.model.RegisterForm
 import pl.makzyt.carrental.model.AppUser
-import pl.makzyt.carrental.service.UserService
+import pl.makzyt.carrental.service.AppUserService
 import javax.validation.Valid
 
 @Controller
 class RegistrationController {
     @Autowired
-    lateinit var service: UserService
+    lateinit var service: AppUserService
 
     @GetMapping("/register")
     fun register(model: Model): String {
