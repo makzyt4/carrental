@@ -38,7 +38,13 @@
                         <a class="nav-link" href="#">O nas</a>
                     </li>
                 </ul>
-                <a sec:authorize="isAnonymous()" class="btn btn-primary pull-right" th:href="@{~/login}">Zaloguj się</a>
+                <div class="row pull-right">
+                    <a sec:authorize="isAnonymous()" class="btn btn-primary" th:href="@{~/login}">Zaloguj się</a>
+                    <span sec:authorize="isAuthenticated()">
+                        Zalogowany jako <span sec:authentication="name"></span>
+                    </span>
+                    <span class="col"></span>
+                </div>
                 <form sec:authorize="isAuthenticated()" th:action="@{~/logout}" method="post">
                     <button class="btn btn-secondary" type="submit">Wyloguj się</button>
                 </form>
