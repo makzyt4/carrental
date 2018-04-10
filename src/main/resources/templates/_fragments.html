@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="htpp://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:th="htpp://www.thymeleaf.org">
 <body>
 <div th:fragment="header">
     <div class="jumbotron text-center">
@@ -36,7 +38,10 @@
                         <a class="nav-link" href="#">O nas</a>
                     </li>
                 </ul>
-                <a class="btn btn-primary pull-right" th:href="@{~/login}">Zaloguj się</a>
+                <a sec:authorize="isAnonymous()" class="btn btn-primary pull-right" th:href="@{~/login}">Zaloguj się</a>
+                <form sec:authorize="isAuthenticated()" th:action="@{~/logout}" method="post">
+                    <button class="btn btn-secondary" type="submit">Wyloguj się</button>
+                </form>
             </div>
         </nav>
     </div>
