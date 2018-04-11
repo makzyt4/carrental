@@ -6,6 +6,7 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import pl.makzyt.carrental.service.AppUserService
+import pl.makzyt.carrental.util.PathUtil
 import java.security.Principal
 
 @Controller
@@ -15,7 +16,6 @@ class AppUserController {
 
     @GetMapping("/user/account")
     fun showUser(principal: Principal?, model: Model): String {
-
         if (principal != null) {
             val user = appUserService.findByEmail(principal.name)
             model.addAttribute("user", user)
