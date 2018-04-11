@@ -13,19 +13,14 @@ class AppUserController {
     @Autowired
     lateinit var appUserService: AppUserService
 
-    @GetMapping("/user/{id}")
-    fun showUser(@PathVariable("id") id: Long, principal: Principal?, model: Model): String {
-        val user = appUserService.findById(id)?.get()
+    @GetMapping("/user/account")
+    fun showUser(principal: Principal?, model: Model): String {
 
         if (principal != null) {
-            val currentUser = appUserService.findByEmail(principal.name)
-            if (currentUser?.email.equals(user?.email)) {
-                model.addAttribute("currentUser", true)
-            }
+            val user = appUserService.findByEmail(principal.name)
+            model.addAttribute("user", user)
         }
 
-        model.addAttribute("user", user)
-
-        return "user"
+        return "useraccount"
     }
 }
