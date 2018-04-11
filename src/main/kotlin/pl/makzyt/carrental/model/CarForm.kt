@@ -6,9 +6,9 @@ class CarForm {
     var name: String = ""
     var type: String = ""
     var airCondition: Boolean = false
-    var gearboxManual: Byte = 0
-    var driveType: Byte = 0
-    var doorNumber: Byte = 0
-    var seatNumer: Byte = 0
+    var gearbox: Int = 0
+    var driveType: Int = 0
+    var doorNumber: Int = 4
+    var seatNumber: Int = 4
     var imageFile: MultipartFile? = null
 }

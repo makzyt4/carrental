@@ -16,5 +16,5 @@ class Car {
     var gearbox: GearboxType = GearboxType.MANUAL
     var driveType: DriveType = DriveType.PETROL
     var doorNumber: Int = 0
-    var seatNumer: Int = 0
+    var seatNumber: Int = 0
 }

@@ -9,7 +9,9 @@
     <div class="container">
         <h2>Stwórz samochód</h2>
 
-        <form th:action="@{/login}" th:object="${form}" method="post" enctype="multipart/form-data">
+        <form th:action="@{/admin/create/car}" th:object="${form}" method="post" enctype="multipart/form-data">
+            <div th:if="${success}" class="alert alert-info">Dodano nowy pojazd.</div>
+
             <div class="form-group row">
                 <label for="nameInput" class="col-3 col-form-label">Nazwa samochodu</label>
                 <div class="col-5">
@@ -20,7 +22,7 @@
             <div class="form-group row">
                 <label for="typeInput" class="col-3 col-form-label">Typ samochodu</label>
                 <div class="col-5">
-                    <select id="typeInput" class="custom-select" name="type">
+                    <select id="typeInput" class="custom-select" name="type" th:field="*{type}">
                         <option value="mini">mini</option>
                         <option value="ekonomiczne">ekonomiczne</option>
                         <option value="kompaktowe">kompaktowe</option>
@@ -34,7 +36,7 @@
             </div>
 
             <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                <input type="checkbox" class="custom-control-input" id="airConditionInput">
+                <input type="checkbox" class="custom-control-input" id="airConditionInput" th:field="*{airCondition}">
                 <label class="custom-control-label" for="airConditionInput">Posiada klimatyzację</label>
             </div>
 
@@ -43,11 +45,11 @@
             <div class="form-group">
                 <p>Skrzynia biegów:</p>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="gearbox1" name="gearbox" class="custom-control-input" checked="checked">
+                    <input type="radio" id="gearbox1" name="gearbox" class="custom-control-input" value="0" checked="checked" th:field="*{gearbox}">
                     <label class="custom-control-label" for="gearbox1">manualna</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="gearbox2" name="gearbox" class="custom-control-input">
+                    <input type="radio" id="gearbox2" name="gearbox" class="custom-control-input" value="1" th:field="*{gearbox}">
                     <label class="custom-control-label" for="gearbox2">automatyczna</label>
                 </div>
             </div>
@@ -57,14 +59,14 @@
             <div class="form-group row">
                 <label for="doorInput" class="col-3 col-form-label">Liczba drzwi</label>
                 <div class="col-5">
-                    <input class="form-control" type="number" value="4" id="doorInput" min="1" max="255">
+                    <input class="form-control" type="number" value="4" id="doorInput" min="1" max="255" th:field="*{doorNumber}">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="seatInput" class="col-3 col-form-label">Liczba miejsc siedzących</label>
                 <div class="col-5">
-                    <input class="form-control" type="number" value="4" id="seatInput" min="1" max="255">
+                    <input class="form-control" type="number" value="4" id="seatInput" min="1" max="255" th:field="*{seatNumber}">
                 </div>
             </div>
 
@@ -73,15 +75,15 @@
             <div class="form-group">
                 <p>Typ napędu:</p>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="drive1" name="drive" class="custom-control-input" checked="checked">
+                    <input type="radio" id="drive1" name="drive" class="custom-control-input" value="0" checked="checked" th:field="*{driveType}">
                     <label class="custom-control-label" for="drive1">benzyna</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="drive2" name="drive" class="custom-control-input">
+                    <input type="radio" id="drive2" name="drive" class="custom-control-input" value="1" th:field="*{driveType}">
                     <label class="custom-control-label" for="drive2">diesel</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="drive3" name="drive" class="custom-control-input">
+                    <input type="radio" id="drive3" name="drive" class="custom-control-input" value="2" th:field="*{driveType}">
                     <label class="custom-control-label" for="drive3">gaz</label>
                 </div>
             </div>
