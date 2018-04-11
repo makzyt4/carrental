@@ -9,6 +9,10 @@
     <div class="container">
         <h2>Rejestracja</h2>
 
+        <div class="container" th:if="${signUpSuccess}">
+            <div class="alert alert-info">Zostałeś zarejestrowany!</div>
+        </div>
+
         <form th:action="@{/register}" th:object="${form}" method="post">
             <div class="form-group row">
                 <label for="firstNameInput" class="col-3 col-form-label">Imię</label>

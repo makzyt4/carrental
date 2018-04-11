@@ -10,33 +10,33 @@ import org.springframework.web.bind.annotation.PostMapping
 import pl.makzyt.carrental.model.RegisterForm
 import pl.makzyt.carrental.model.AppUser
 import pl.makzyt.carrental.service.AppUserService
+import java.security.Principal
 import javax.validation.Valid
 
 @Controller
-class RegistrationController {
+class SignUpController {
     @Autowired
     lateinit var service: AppUserService
 
-    @GetMapping("/register")
-    fun register(model: Model): String {
+    @GetMapping("/signup")
+    fun register(model: Model, principal: Principal?): String {
+        if (principal != null) {
+            return "redirect:/"
+        }
+
         model.addAttribute("form", RegisterForm())
-        return "register"
+        return "signup"
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signup")
     fun registerUser(@Valid @ModelAttribute("form") form: RegisterForm, result: BindingResult, model: Model): String {
         val user = createUserAccount(form)
 
-        if (result.hasErrors()) {
-            return "register"
+        if (!result.hasErrors()) {
+             model.addAttribute("signUpSuccess", true)
         }
 
-        return "registersuccess"
-    }
-
-    @PostMapping("/register/success")
-    fun success(): String {
-        return "registersuccess"
+        return "signup"
     }
 
     private fun createUserAccount(form: RegisterForm): AppUser? {

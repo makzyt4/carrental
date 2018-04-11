@@ -39,7 +39,10 @@
                     </li>
                 </ul>
                 <div class="row pull-right">
-                    <a sec:authorize="isAnonymous()" class="btn btn-primary" th:href="@{~/login}">Zaloguj się</a>
+                    <div class="btn-group" sec:authorize="isAnonymous()">
+                        <a class="btn btn-primary" th:href="@{~/login}">Zaloguj się</a>
+                        <a class="btn btn-secondary" th:href="@{~/signup}">Zarejestruj się</a>
+                    </div>
                     <span sec:authorize="isAuthenticated()">
                         Zalogowany jako <span sec:authentication="name"></span>
                     </span>
