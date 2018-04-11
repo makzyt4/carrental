@@ -1,17 +1,15 @@
 package pl.makzyt.carrental.util
 
-import java.io.File
-
 object PathUtil {
     fun resourcesPath(): String {
-        return System.getProperty("user.dir") +
-                File.separator + "src" +
-                File.separator + "main" +
-                File.separator + "resources" +
-                File.separator
+        return System.getProperty("user.dir") + "/src/main/resources/"
     }
 
     fun imagesPath(): String {
-        return resourcesPath() + "uploads" + File.separator
+        return resourcesPath() + "/static/images/"
+    }
+
+    fun uploadsPath(): String {
+        return imagesPath() + "uploads/"
     }
 }

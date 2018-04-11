@@ -11,7 +11,7 @@ class Car {
     var id: Long = 0
     var name: String = ""
     var type: String = ""
-    var imagePath: String = ""
+    var imageFilename: String = ""
     var airCondition: Boolean = false
     var gearbox: GearboxType = GearboxType.MANUAL
     var driveType: DriveType = DriveType.PETROL

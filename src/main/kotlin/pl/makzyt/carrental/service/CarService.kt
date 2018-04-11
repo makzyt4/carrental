@@ -26,7 +26,7 @@ class CarService {
         car.driveType = DriveType.values()[form.driveType]
         car.gearbox = GearboxType.values()[form.gearbox]
         car.seatNumber = form.seatNumber
-        car.imagePath = getPathOfImage(car.id, form.imageFile)
+        car.imageFilename = getImageFilename(form.imageFile)
 
         repository.save(car)
     }
@@ -35,16 +35,14 @@ class CarService {
         return repository.findById(id)
     }
 
-    private fun getPathOfImage(id: Long, file: MultipartFile?): String {
-        if (file == null || file.originalFilename == "") {
-            return ""
-        }
-
+    private fun getImageFilename(file: MultipartFile?): String {
         val filename = System.currentTimeMillis().toString() + ".png"
-        val newFile = File(PathUtil.imagesPath() + File.separator + "car" + File.separator + filename)
+        val newFile = File(PathUtil.uploadsPath() + "car/" + filename)
         newFile.parentFile.mkdirs()
         newFile.createNewFile()
 
-        return "car" + File.separator + filename
+        file?.transferTo(newFile)
+
+        return filename
     }
 }
