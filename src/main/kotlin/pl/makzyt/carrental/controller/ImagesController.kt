@@ -14,7 +14,7 @@ import java.nio.file.Files
 @Controller
 class ImagesController {
     @GetMapping("/images/uploads/car/{name}", produces = [MediaType.IMAGE_PNG_VALUE])
-    fun showUploadedFile(@PathVariable("name") name: String, model: Model): ResponseEntity<ByteArray> {
+    fun showCarImage(@PathVariable("name") name: String, model: Model): ResponseEntity<ByteArray> {
         val file = File(System.getProperty("user.dir") + "/src/main/resources/static/images/uploads/car/$name")
         val bytes = Files.readAllBytes(file.toPath())
         val headers = HttpHeaders()
