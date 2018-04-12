@@ -49,3 +49,8 @@ html, body {
 .gm-style-iw {
     color: black;
 }
+
+.car-image {
+    max-width: 256px;
+    max-height: 256px;
+}

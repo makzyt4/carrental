@@ -14,7 +14,7 @@ class Car {
     var imageFilename: String = ""
     var airCondition: Boolean = false
     var gearbox: GearboxType = GearboxType.MANUAL
-    var driveType: DriveType = DriveType.PETROL
+    var driveType: DriveType = DriveType.PETROL // TODO move to offer
     var doorNumber: Int = 0
     var seatNumber: Int = 0
 }

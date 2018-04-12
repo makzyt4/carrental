@@ -10,7 +10,42 @@
         <h2>Informacje o samochodzie</h2>
         <div class="row">
             <div class="col">
-                <img th:src="'/images/uploads/car/' + ${car.imageFilename}">
+                <img class="car-image" th:src="'/images/uploads/car/' + ${car.imageFilename}">
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">Nazwa</div>
+                    <div class="col" th:text="${car.name}"></div>
+                </div>
+                <div class="row">
+                    <div class="col">Klasa pojazdu</div>
+                    <div class="col" th:text="${car.type}"></div>
+                </div>
+                <div class="row">
+                    <div class="col">Skrzynia biegów</div>
+                    <div th:if="${car.gearbox.name() == 'MANUAL'}" class="col">manualna</div>
+                    <div th:if="${car.gearbox.name() == 'AUTO'}" class="col">automatyczna</div>
+                </div>
+                <div class="row">
+                    <div class="col">Klimatyzacja</div>
+                    <div th:if="${car.airCondition}" class="col">tak</div>
+                    <div th:unless="${car.airCondition}" class="col">nie</div>
+                </div>
+                <div class="row">
+                    <div class="col">Napęd</div>
+                    <div th:if="${car.driveType.name() == 'PETROL'}" class="col">benzyna</div>
+                    <div th:if="${car.driveType.name() == 'LPG'}" class="col">gaz</div>
+                    <div th:if="${car.driveType.name() == 'DIESEL'}" class="col">diesel</div>
+                    <div th:if="${car.driveType.name() == 'HYBRID'}" class="col">hybrydowy</div>
+                </div>
+                <div class="row">
+                    <div class="col">Liczba drzwi</div>
+                    <div class="col" th:text="${car.doorNumber}"></div>
+                </div>
+                <div class="row">
+                    <div class="col">Liczba miejsc siedzących</div>
+                    <div class="col" th:text="${car.seatNumber}"></div>
+                </div>
             </div>
         </div>
 
